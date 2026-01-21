@@ -1,152 +1,32 @@
-🚀 DevTinder — Developer Networking Platform
+<p align="center"> <img src="/Banner.png" alt="DevTinder Official Banner" style="width:100%;max-width:900px;"> </p> <h1 align="center">🔥 <span style="color:#ff4d4d">DevTinder – Developer Networking Platform</span></h1> <p align="center"> <b>Match, Connect, and Collaborate with <span style="color:#00c2ff">Developers Worldwide</span></b> </p> <p align="center"> <img src="https://img.shields.io/badge/Developers-Networking-ff4d4d?style=for-the-badge"/> <img src="https://img.shields.io/badge/Built%20With-React%20%7C%20Node%20%7C%20MongoDB-00c2ff?style=for-the-badge"/> <img src="https://img.shields.io/badge/Microservices-Architecture-success?style=for-the-badge"/> </p>
+<p align="center"> <em> <b>✨ Swipe through developer profiles, send connection requests, and build your tech network — all in one powerful platform.</b> </em> </p>
+👥 Contributors
+<!-- <table> <tr> <td align="center"> <a href="https://github.com/patelaryan5636"> <img src="https://avatars.githubusercontent.com/u/132159758?v=4" width="80px;" alt="Aryan"/> <br /><sub><b>Aryan Sachani</b></sub> </a> </td>  </tr> </table> -->
+🎯 Key Features
+<table> <tr> <th>🔥 Feature</th> <th>📝 Functionality</th> </tr> <tr> <td>👤 <b>Developer Profiles</b></td> <td>Create detailed profiles with skills, bio, and social links.</td> </tr> <tr> <td>📰 <b>Smart Developer Feed</b></td> <td>Personalized feed based on interests and activity.</td> </tr> <tr> <td>👍 <b>Like / Pass System</b></td> <td>Swipe-style interaction to express interest.</td> </tr> <tr> <td>🤝 <b>Connection Requests</b></td> <td>Send, accept, or reject connection invitations.</td> </tr> <tr> <td>🔐 <b>JWT Authentication</b></td> <td>Secure login with token-based authentication.</td> </tr> <tr> <td>🧩 <b>Microservices Backend</b></td> <td>Independent services for auth, feed, users, and connections.</td> </tr> </table>
+🛠️ Tech Stack
+<table align="center"> <tr> <th>🌐 Frontend</th> <th>💻 Backend</th> <th>🗄️ Database</th> <th>⚙️ Other Tools</th> </tr> <tr> <td align="center"> <img src="https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=000" /> <br> <img src="https://img.shields.io/badge/Axios-5A29E4?logo=axios&logoColor=fff" /> <br> <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?logo=tailwindcss&logoColor=fff" /> </td> <td align="center"> <img src="https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=fff" /><br> <img src="https://img.shields.io/badge/Express.js-000?logo=express&logoColor=fff" /><br> Microservices Architecture </td> <td align="center"> <img src="https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=fff" /><br> Mongoose ODM </td> <td align="center"> <img src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff" /><br> <img src="https://img.shields.io/badge/Postman-FF6C37?logo=postman&logoColor=fff" /><br> <img src="https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=fff" /> </td> </tr> </table>
+🚀 Deployment
+<p align="center"> <img src="https://img.shields.io/badge/Deployment-Docker-blue?style=flat-square&logo=docker"/> <img src="https://img.shields.io/badge/Database-MongoDB-47A248?style=flat-square&logo=mongodb"/> </p>
 
-DevTinder is a Tinder-inspired developer networking platform that helps developers discover, connect, and collaborate with other developers based on interests, skills, and activity feed.
-The platform is built using microservices architecture with a scalable backend and a modern React frontend.
+Supports deployment using Docker Compose, VPS, or cloud platforms like AWS and Render.
 
-📌 Key Features
+⚙️ Tool	🎯 Purpose
+Docker	Containerized services
+Nginx	Reverse proxy & routing
+MongoDB Atlas	Cloud database
+📈 Outcomes
 
-👤 Developer Profiles
+✅ Faster developer networking
 
-📰 Personalized Developer Feed
+🤝 Improved professional collaboration
 
-👍 Like / 👎 Pass System
+🧩 Scalable microservice architecture
 
-🤝 Connection Requests & Matches
+🔐 Secure authentication and routing
 
-🔐 JWT-based Authentication
+🚀 Production-ready system design
 
-🧩 Microservices Architecture
-
-🌐 API Gateway Routing
-
-📊 MongoDB with Mongoose ODM
-
-🧱 System Architecture
-Client (React)
-     |
-API Gateway (Node + Express)
-     |
-------------------------------------------------
-| Auth Service | User Service | Feed Service | Connection Service |
-------------------------------------------------
-                 |
-              MongoDB
-
-
-Each service has its own business logic and database access layer.
-
-🛠 Tech Stack
-Frontend
-
-React.js
-
-Axios
-
-React Router
-
-Tailwind CSS / Material UI
-
-Backend
-
-Node.js
-
-Express.js
-
-MongoDB
-
-Mongoose
-
-JWT Authentication
-
-REST APIs
-
-DevOps (Optional)
-
-Docker
-
-Docker Compose
-
-Nginx
-
-📁 Project Structure
-devtinder/
-│
-├── frontend/
-│   └── src/
-│       ├── components/
-│       ├── pages/
-│       ├── services/
-│       ├── routes/
-│       └── App.jsx
-│
-├── backend/
-│   ├── gateway-service/
-│   ├── auth-service/
-│   ├── user-service/
-│   ├── feed-service/
-│   └── connection-service/
-│
-├── docker-compose.yml
-└── README.md
-
-⚙️ Installation & Setup
-🔹 Prerequisites
-
-Node.js (v18+)
-
-MongoDB
-
-Git
-
-🔹 Clone Repository
-git clone https://github.com/your-username/devtinder.git
-cd devtinder
-
-⚙️ Backend Setup (Microservices)
-Step 1: Install Dependencies
-
-For each service:
-
-cd backend/auth-service
-npm install
-
-
-Repeat for all services.
-
-Step 2: Environment Variables
-
-Create .env in each service:
-
-PORT=5001
-MONGO_URI=mongodb://localhost:27017/devtinder
-JWT_SECRET=devtinder_secret
-
-
-Gateway Service:
-
-PORT=5000
-AUTH_SERVICE_URL=http://localhost:5001
-USER_SERVICE_URL=http://localhost:5002
-FEED_SERVICE_URL=http://localhost:5003
-CONNECTION_SERVICE_URL=http://localhost:5004
-
-Step 3: Start MongoDB
-mongod
-
-
-OR using Docker:
-
-docker run -d -p 27017:27017 mongo
-
-Step 4: Run Services
-npm run dev
-
-
-Run each service in separate terminals:
-
-Service	Port
-Gateway	5000
-Auth	5001
-User	5002
-Feed	5003
-Connection	5004
+🏷️ Tags
+<p align="center"> <code>#DevTinder</code> <code>#DeveloperNetworking</code> <code>#Microservices</code> <code>#MERNStack</code> <code>#MongoDB</code> <code>#ReactJS</code> <code>#NodeJS</code> <code>#StartupProject</code> </p>
+<p align="center"> <b>🔥 Code. Connect. Collaborate. Build the future together. 🔥</b> </p>
