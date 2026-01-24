@@ -6,6 +6,4 @@ const connectDb = async function () {
   );
 };
 
-
-
 module.exports = { connectDb };
