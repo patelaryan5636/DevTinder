@@ -44,7 +44,7 @@ app.get("/feed",async(req,res)=>{
     }
 })
 
-app.delete("/deleteuser",async(req,res)=>{
+app.delete("/user",async(req,res)=>{
   const userid = await User.findOneAndDelete({ email: req.body.email });
 
   try{
@@ -69,6 +69,23 @@ app.post("/signup",async(req,res)=>{
     res.status(400).send("bad request");
   }
 })
+
+app.patch("/user",async(req,res)=>{
+
+   const { userId, ...data } = req.body; 
+
+   try{
+     const updateUser = await User.findByIdAndUpdate(userId,data);
+     if(updateUser){
+      res.send("updated succesfully");
+    }else{
+      res.status(401).send("id not found");
+    }
+  }catch(error){
+    res.status(500).send("bad request");
+  }
+
+});
 
 connectDb()
   .then(function () {
