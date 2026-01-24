@@ -1,0 +1,23 @@
+const adminAuth = function(req,res,next){
+  const token = "xyz";
+  const isAdminuser = token === "xyz";
+
+  if(isAdminuser){
+    next();
+  }else{
+    res.status(500).send("unothorized admin");
+  }
+}
+
+const userAuth = function(req,res,next){
+  const token = "user";
+  const isUser = token === "user";
+
+  if(!isUser){
+    res.status(500).send("unothorized user");
+  }else{
+    next();
+  }
+}
+
+module.exports = { adminAuth, userAuth };

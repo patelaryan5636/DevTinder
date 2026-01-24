@@ -1,6 +1,11 @@
 const express = require("express");
 
-const {adminAuth, userAuth} = require("../middlewares/adminAuth");
+const { adminAuth, userAuth } = require("./middlewares/adminAuth");
+
+const User= require("./Models/User");
+
+const { connectDb } = require("./config/database");
+
 const app = express();
 
 app.use((err, req, res, next) => {
@@ -9,22 +14,31 @@ app.use((err, req, res, next) => {
   res.status(500).send("Cannot be reached out");
 });
 
-app.get("/user/login",(req,res)=>{
-  res.send("login successfully");
+app.post("/signup",async(req,res)=>{
+  const userObj = {
+    firstName: "aryan",
+    lastName: "patel",
+    emailId: "sachaniaryan675@gmail.com",
+    gender: "male",
+    age: 17,
+  }
+  const user = new User(userObj);
+
+  try{
+    await user.save();
+    res.send("data pushed successfully");
+  }catch(error){
+    res.status(400).send("bad request");
+  }
 })
 
-app.use("/admin",adminAuth);
-
-app.use("/user",userAuth);
-
-app.get("/admin/getdata",function(req,res){
-    res.send("data successfully send ");
+connectDb()
+  .then(function () {
+    console.log("connection was successfullt established");
+    app.listen(7777, () => {
+      console.log("sever is running succesfully");
+    });
+  })
+  .catch(function (err) {
+    console.error("connection was not established");
   });
-
-app.get("/user/userdata",function(req,res){
-  res.send("data successfuully send to the user");
-})
-
-app.listen(7777,()=>{
-  console.log("connect ");
-});
