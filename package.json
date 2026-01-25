@@ -24,6 +24,7 @@
   "homepage": "https://github.com/patelaryan5636/DevTinder#readme",
   "dependencies": {
     "express": "^5.2.1",
-    "mongoose": "^9.1.5"
+    "mongoose": "^9.1.5",
+    "validator": "^13.15.26"
   }
 }
