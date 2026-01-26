@@ -78,20 +78,41 @@ app.post("/signup",async(req,res)=>{
 // update the user data
 app.patch("/user",async(req,res)=>{
 
-   const { userId, firstName, lastName} = req.body;
+
+  
+
+  // if(data?.skills.length > 10){
+  // throw new Error("skills cannot be more than 10");
+  // }
+
+  //  const { userId, firstName, lastName} = req.body;
   
    const UpdateData = {};
-   if(firstName) UpdateData.firstName = firstName;
-   if(lastName) UpdateData.lastName = lastName;
+  //  if(firstName) UpdateData.firstName = firstName;
+  //  if(lastName) UpdateData.lastName = lastName;
 
-   console.log(Object.keys(UpdateData));
+  //  console.log(Object.keys(UpdateData));
 
-   if (Object.keys(UpdateData).length === 0) {
-     return res.status(400).send("Nothing to update");
-   }
+  //  if (Object.keys(UpdateData).length === 0) {
+  //    return res.status(400).send("Nothing to update");
+  //  } 
 
    try{
-     const updateUser = await User.findByIdAndUpdate(userId,UpdateData,{ new: true, runValidators: true });
+
+    const data = req.body;
+  const Allowed_updates = ["firstName" ,"lastName"];
+
+
+  const isUpdateAllowed = Object.keys(data).every((k)=>
+        Allowed_updates.includes(k)
+  );
+
+  if(!isUpdateAllowed){
+    res.send("not possible to update");
+    // throw new Error("update not allowed");
+  }
+  
+     const updateUser = await User.findByIdAndUpdate(userId,data,{ new: true, runValidators: true });
      if(updateUser){
       res.send("updated succesfully");
     }else{
